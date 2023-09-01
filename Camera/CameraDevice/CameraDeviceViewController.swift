@@ -39,27 +39,18 @@ class CameraDeviceViewController: UIViewController {
         camera.checkCameraPermissions()
         mainView?.previewLayer.session = camera.session
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("camera viewWillDisappear")
-        delegateReloadCollection?.reloadCollection()
-
-    }
 }
 
 extension CameraDeviceViewController: CameraDeviceViewControllerDelegate {
     
     func dismissCamera() {
-        self.dismiss(animated: true)
-        print("dismiss camera")
-        delegateReloadCollection?.reloadCollection()
+        self.dismiss(animated: true) {
+        }
     }
     
     func shutterButtonPressed() {
         let settings = AVCapturePhotoSettings()
         currentPhotoSettings = settings
-
         camera.output.capturePhoto(with: settings,
                                    delegate: self)
     }

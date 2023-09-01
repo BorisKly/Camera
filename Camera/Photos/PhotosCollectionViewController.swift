@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ReloadCollectionDelegate: AnyObject {
+    var myPhotos: [(URL, UIImage)] {get set}
     func reloadCollection()
 }
 
@@ -68,7 +69,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         updateNavButtonsState()
     }
     
-    private func loadPhotosFromFileManager() {
+    public func loadPhotosFromFileManager() {
         
         let fileManager = FileManager.default
         
@@ -118,7 +119,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     @objc private func photoBarButtonTapped(){
         print(#function)
-        present(cameraDeviceVC, animated: true)
+        present(cameraDeviceVC, animated: true) 
     }
     
     @objc private func trashBarButtonTapped(){

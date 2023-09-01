@@ -10,6 +10,7 @@ import Foundation
 extension PhotosCollectionViewController: ReloadCollectionDelegate {
     func reloadCollection() {
         print("reloadCollection!!!")
+       // loadPhotosFromFileManager()
         collectionView.reloadData()
     }
 }

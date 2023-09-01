@@ -24,6 +24,10 @@ extension CameraDeviceViewController: AVCapturePhotoCaptureDelegate {
         do {
             try data.write(to: fileURL)
             print("photo saved \(fileURL.path)")
+            // save to myPhoto
+            let elem = (fileURL, image)
+            delegateReloadCollection?.myPhotos.append(elem)
+            delegateReloadCollection?.reloadCollection()
         } catch {
             print("error \(error)")
         }
