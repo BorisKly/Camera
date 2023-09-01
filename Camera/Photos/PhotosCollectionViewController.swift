@@ -15,13 +15,13 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     private let cameraDeviceVC = CameraDeviceViewController()
     
-    private var myPhotos = [(URL, UIImage)]()
+    public var myPhotos = [(URL, UIImage)]()
     
-    private var selectedImages = [(URL, UIImage)]()
+    public var selectedImages = [(URL, UIImage)]()
 
-    private let itemsPerRow: CGFloat = 2
+    public let itemsPerRow: CGFloat = 2
     
-    private let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    public let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
  
     private var numberOfSelectedPhotos: Int {
         return collectionView.indexPathsForSelectedItems?.count ?? 0
@@ -53,11 +53,9 @@ class PhotosCollectionViewController: UICollectionViewController {
         loadPhotosFromFileManager()
         setupNavigationBar()
         setupCollectionView()
-   
-
     }
     
-    private func updateNavButtonsState() {
+    public func updateNavButtonsState() {
         addBarButtonItem.isEnabled = numberOfSelectedPhotos > 0
         trashBarButtonItem.isEnabled = numberOfSelectedPhotos > 0
         actionBarButtonItem.isEnabled = numberOfSelectedPhotos > 0
@@ -115,6 +113,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     @objc private func addBarButtonTapped(){
         print(#function)
+        //going to add some photos to favourites
     }
     
     @objc private func photoBarButtonTapped(){
@@ -157,76 +156,9 @@ class PhotosCollectionViewController: UICollectionViewController {
                 self.refresh()
             }
         }
-        
         shareController.popoverPresentationController?.barButtonItem = sender
         shareController.popoverPresentationController?.permittedArrowDirections = .any
         present(shareController, animated: true)
-    }
-    
-    // MARK: UICollectionViewDataSource and UICollectionViewDelegate
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return myPhotos.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCell.reuseId, for: indexPath) as! PhotosCell
-        cell.photoImageView.image = myPhotos[indexPath.item].1
-        cell.fileURL = myPhotos[indexPath.item].0
-        cell.backgroundColor = .systemGreen
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        updateNavButtonsState()
-        let cell = collectionView.cellForItem(at: indexPath) as! PhotosCell
-        guard let image = cell.photoImageView.image,
-              let fileUrl = cell.fileURL else {
-            return
-        }
-        selectedImages.append((fileUrl, image))
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        updateNavButtonsState()
-        let cell = collectionView.cellForItem(at: indexPath) as! PhotosCell
-        guard let image = cell.photoImageView.image,
-              let fileURL = cell.fileURL else {
-            return
-        }
-        
-        if let index = selectedImages.firstIndex(where: { (url, im ) in
-            im == image
-        }) {
-            selectedImages.remove(at: index)
-        }
-    }
-    
-}
-// MARK: - UICollectionViewDelegateFlowLayout
-//
-extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let paddingSpace = sectionInserts.left * (itemsPerRow + 1)
-        let availiableWidth = collectionView.frame.width - paddingSpace
-        let widthPerItem = availiableWidth / itemsPerRow
-
-        return CGSize(width: widthPerItem, height: widthPerItem)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        sectionInserts
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        sectionInserts.left
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        sectionInserts.left
     }
 }
 

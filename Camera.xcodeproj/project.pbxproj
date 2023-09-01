@@ -28,6 +28,8 @@
 		E4027FF22AA0CC7D003EFE44 /* String+Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4027FF12AA0CC7D003EFE44 /* String+Local.swift */; };
 		E4027FF42AA0CC9D003EFE44 /* Date+Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4027FF32AA0CC9D003EFE44 /* Date+Local.swift */; };
 		E4027FF82AA219B5003EFE44 /* PhotosCollectionVC+reloadCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4027FF72AA219B5003EFE44 /* PhotosCollectionVC+reloadCollectionDelegate.swift */; };
+		E4027FFA2AA21EB4003EFE44 /* PhotosCollectionVC+FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4027FF92AA21EB4003EFE44 /* PhotosCollectionVC+FlowLayoutDelegate.swift */; };
+		E4027FFC2AA21F44003EFE44 /* PhotoCollectionVC+DataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4027FFB2AA21F44003EFE44 /* PhotoCollectionVC+DataSourceDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		E4027FF12AA0CC7D003EFE44 /* String+Local.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Local.swift"; sourceTree = "<group>"; };
 		E4027FF32AA0CC9D003EFE44 /* Date+Local.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Local.swift"; sourceTree = "<group>"; };
 		E4027FF72AA219B5003EFE44 /* PhotosCollectionVC+reloadCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosCollectionVC+reloadCollectionDelegate.swift"; sourceTree = "<group>"; };
+		E4027FF92AA21EB4003EFE44 /* PhotosCollectionVC+FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosCollectionVC+FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
+		E4027FFB2AA21F44003EFE44 /* PhotoCollectionVC+DataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCollectionVC+DataSourceDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 				E4027FD62AA09F43003EFE44 /* PhotosCollectionViewController.swift */,
 				E4027FD82AA09FA5003EFE44 /* PhotosCell.swift */,
 				E4027FF72AA219B5003EFE44 /* PhotosCollectionVC+reloadCollectionDelegate.swift */,
+				E4027FF92AA21EB4003EFE44 /* PhotosCollectionVC+FlowLayoutDelegate.swift */,
+				E4027FFB2AA21F44003EFE44 /* PhotoCollectionVC+DataSourceDelegate.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -320,7 +326,9 @@
 				E4027FD12AA09CBF003EFE44 /* Container.swift in Sources */,
 				E4027FE82AA0CA2E003EFE44 /* CameraService.swift in Sources */,
 				E4027FF42AA0CC9D003EFE44 /* Date+Local.swift in Sources */,
+				E4027FFC2AA21F44003EFE44 /* PhotoCollectionVC+DataSourceDelegate.swift in Sources */,
 				E4027FDE2AA0A020003EFE44 /* FavouritesCell.swift in Sources */,
+				E4027FFA2AA21EB4003EFE44 /* PhotosCollectionVC+FlowLayoutDelegate.swift in Sources */,
 				E4027FD92AA09FA5003EFE44 /* PhotosCell.swift in Sources */,
 				E4027FF82AA219B5003EFE44 /* PhotosCollectionVC+reloadCollectionDelegate.swift in Sources */,
 				E4027FF22AA0CC7D003EFE44 /* String+Local.swift in Sources */,
