@@ -1,0 +1,6 @@
+framework module XServiceLocator {
+  umbrella header "XServiceLocator-umbrella.h"
+
+  export *
+  module * { export * }
+}

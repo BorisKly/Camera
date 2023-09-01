@@ -1,0 +1,16 @@
+PODS:
+  - XServiceLocator (1.0.0)
+
+DEPENDENCIES:
+  - XServiceLocator
+
+SPEC REPOS:
+  trunk:
+    - XServiceLocator
+
+SPEC CHECKSUMS:
+  XServiceLocator: c4dd6ec44fc0c9205326f230d21e890d077e806c
+
+PODFILE CHECKSUM: 26bafa535286089092b4ae61a196d09671483ee8
+
+COCOAPODS: 1.12.1
